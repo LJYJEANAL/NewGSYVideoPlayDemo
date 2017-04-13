@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    defaultConfig {
+        applicationId "newgsy.ng.smc.newgsyvideoplaydemo"
+        minSdkVersion 18
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi', 'armeabi-v7a', 'x86'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile project(':gsyVideoPlayer')
+    def viewDependencies = rootProject.ext.viewDependencies
+    def androidDependencies = rootProject.ext.androidDependencies
+    def dataDependencies = rootProject.ext.dataDependencies
+    compile androidDependencies.recyclerView
+    compile viewDependencies.DanmakuFlameMaster
+    compile viewDependencies.ndkbitmap_armv7a
+    compile viewDependencies.ndkbitmap_armv5
+    compile viewDependencies.ndkbitmap_x86
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}

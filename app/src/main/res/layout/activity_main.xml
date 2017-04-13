@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="newgsy.ng.smc.newgsyvideoplaydemo.MainActivity">
+    <Button
+        android:id="@+id/default_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:text="默认播放"
+        android:textSize="18sp"/>
+    <Button
+        android:id="@+id/list_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_below="@+id/default_btn"
+        android:text="列表ListView播放"
+        android:textSize="18sp"/>
+    <Button
+        android:id="@+id/recycler_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_below="@+id/list_btn"
+        android:text="列表Recycler播放"
+        android:textSize="18sp"/>
+</RelativeLayout>

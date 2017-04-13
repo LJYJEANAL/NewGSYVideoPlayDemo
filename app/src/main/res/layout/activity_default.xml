@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="newgsy.ng.smc.newgsyvideoplaydemo.playvideo.DefaultActivity">
+    <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+        android:id="@+id/default_video_player"
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+
+        >
+    </com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer>
+    <Button
+        android:id="@+id/start_play"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/default_video_player"
+        android:text="开始播放"/>
+
+</RelativeLayout>

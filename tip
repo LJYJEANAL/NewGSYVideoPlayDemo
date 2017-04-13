@@ -1,0 +1,24 @@
+添加第三方播放器 gsyVideoPlayer 需要注意事项：
+  1   复制bintray.gradle，dependencies.gradle到项目中在project模式下
+  2   直接再file->new->Import Model进项目中
+  3   在项目的Pioject模式下的build.gradle 添加
+          dependencies {
+                  classpath 'com.android.tools.build:gradle:2.3.0'
+                  classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+
+                  classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
+                  classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
+                  // NOTE: Do not place your application dependencies here; they belong
+                  // in the individual module build.gradle files
+              }
+   4  在Android 模式下 添加依赖
+    compile project(':gsyVideoPlayer')
+       def viewDependencies = rootProject.ext.viewDependencies
+       def androidDependencies = rootProject.ext.androidDependencies
+       def dataDependencies = rootProject.ext.dataDependencies
+       compile androidDependencies.recyclerView
+       compile viewDependencies.DanmakuFlameMaster
+       compile viewDependencies.ndkbitmap_armv7a
+       compile viewDependencies.ndkbitmap_armv5
+       compile viewDependencies.ndkbitmap_x86
+       以及 在相应的位置加上build信息 具体参考本demo的设置
